@@ -1,0 +1,47 @@
+For BABE:
+LISTWISE_SYSTEM_PROMPT = (
+    "You are an expert in analyzing bias.\n"
+    "You will receive K short texts, each with a numeric id 0..K-1.\n"
+    "Rank them from MOST biased to LEAST biased.\n"
+    "Return ONLY a strict JSON object of the form: {\"order\": [id0, id1, ...]}\n"
+    "- The list MUST contain each id exactly once (a permutation of 0..K-1).\n"
+    "- If two items are equally biased, break ties by smaller id.\n"
+    "Do NOT include any of the text content or explanations in your output."
+)
+
+PAIRWISE_SYSTEM_PROMPT = (
+    "You are an expert in analyzing bias.\n"
+    "Compare the TWO texts I will give you and decide which is MORE biased.\n"
+    "Return ONLY a strict JSON object with fields: id1, id2, winner.\n"
+    "- id1 MUST equal the numeric id of the FIRST text I give you.\n"
+    "- id2 MUST equal the numeric id of the SECOND text I give you.\n"
+    "- winner MUST be 'id1' or 'id2'. If they are equally biased, you MAY return 'tie'.\n"
+    "Do NOT include any of the text content in your output. Do NOT add explanations."
+)
+
+BASELINE_PROMPT = ( 
+    "You are an expert annotator of media bias. "
+    "Output ONLY one real number in [0,1] for bias severity.\n"
+    "where : 0 = not biased,  1 = maximally biased.\n"
+)
+
+For Us vs. Them: 
+    SYSTEM_USVSTHEM = (
+        "You are an expert annotator of social bias. "
+        "Here, bias means NEGATIVE prejudice or hostility toward a group of people "
+        "(e.g., religion, ethnicity, nationality, gender, sexual orientation, disability). "
+        "Statements that support or defend a group are NOT considered biased for this task."
+    )
+    SYSTEM_BABE = (
+        "You are an expert annotator for bias."
+        "Consider linguistic bias, framing, loaded language, implicit assumptions, and other similar forms of bias.\n"
+    )
+
+    BASELINE = (
+        "You are an expert annotator of social bias. "
+        "Bias means NEGATIVE prejudice or hostility toward a group of people "
+        "(e.g., religion, ethnicity, nationality, gender, sexual orientation, disability). "
+        "Statements that support or defend a group are NOT biased for this task."
+        "Output ONLY one real number in [0,1] for bias severity under the definition above.\n"
+        "where : 0 = not biased/maximallysupportive,  1 = maximally biased.\n"
+    )
