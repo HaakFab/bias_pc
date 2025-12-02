@@ -15,7 +15,7 @@ Repository contents of interest:
   All prompt templates used for LLM-based pairwise/listwise comparisons and direct scoring.
 
 - **`BABE/`**  
-  Notebooks, scripts, and data related to the BABE bias detection experiments.
+ Data related to the BABE bias detection experiments.
 
 - **`USvsTHEM/`**  
-  Notebooks, scripts, and data related to the Us vs. Them bias quantification experiments.
+  Data related to the Us vs. Them bias quantification experiments.
